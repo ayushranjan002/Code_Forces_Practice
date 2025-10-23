@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> cal(int num) {
+    vector<int> ans;
+    string s1 = to_string(num);
+
+    int start = 0;
+    while (start < s1.size() && s1[start] == '0') {
+        start++;
+    }
+
+    string s = s1.substr(start);
+    for (int i = 0; i < s.size(); i++) {
+        int temp = s[i] - '0';
+        if (temp > 0) {
+            int val = temp * (int)pow(10, s.size() - i - 1);
+            ans.push_back(val);
+        }
+    }
+    return ans;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        int temp_num;
+        cin >> temp_num;
+        vector<int> v = cal(temp_num);
+        cout << v.size() << "\n";
+        for(int x : v){
+            cout << x << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
