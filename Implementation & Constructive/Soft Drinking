@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int n, k, l, c, d, p, nl, np;
+    cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+ 
+    int t1 = (k * l) / nl;   // total number of toasts possible using the drink
+    int t2 = c * d;          // total number of toasts possible using lime slices
+    int t3 = p / np;         // total number of toasts possible using salt
+ 
+    int ans = min({t1, t2, t3}) / n;
+    cout << ans;
+    return 0;
+}
